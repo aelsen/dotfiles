@@ -108,7 +108,6 @@
 	untrackedCache = true
 
 [color]
-
 	# Use colors in Git commands that are capable of colored output when
 	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
 	ui = auto
@@ -165,6 +164,10 @@
 	default = simple
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
+
+[user]
+	name = Antonia Elsen
+	email = antoniaelsen@gmail.com
 
 # URL shorthands
 
