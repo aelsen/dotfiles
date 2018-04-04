@@ -6,13 +6,24 @@ Desktop.ini
 ._*
 Thumbs.db
 
+# VSCode
+.vscode
+
 # Eclipse
 *.cproject
 *.project
 
+# QtCreator
+*qmake.stash
+
 # Files that might appear on external disks
 .Spotlight-V100
 .Trashes
+
+# Compiled
+*.o
+*.so
+*.a
 
 # Compiled Python files
 *.pyc
