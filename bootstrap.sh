@@ -17,7 +17,7 @@ function sync_files() {
 		-avh --no-perms . ~;
 	
 	rsync tmux/.tmux.conf.local ~
-	ln -f -s tmux/.tmux.conf ~/.tmux.conf
+	ln -f -s tmux/.tmux.conf ~
 	
 	source ~/.bash_profile;
 }
