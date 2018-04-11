@@ -16,8 +16,7 @@ function sync_files() {
 		--exclude "LICENSE-MIT.txt" \
 		-avh --no-perms . ~;
 	
-	rsync tmux/.tmux.conf.local ~
-	ln -f -s tmux/.tmux.conf ~
+	rsync tmux/.*.conf* ~
 	
 	source ~/.bash_profile;
 }
