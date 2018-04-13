@@ -5,6 +5,33 @@ let g:solarized_termtrans=1
 
 " Make Vim more useful
 set nocompatible
+
+" Set up Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'godlygeek/tabular'			" Elegant alignment
+Plugin 'kien/ctrlp'					" Fuzzy searches
+Plugin 'justinmk/vim-sneak'			" Location jumping
+Plugin 'mhinz/vim-signify'			" Version control A, D, R
+Plugin 'plasticboy/vim-markdown'	" Markdown
+Plugin 'srooloose/nerdtree'			" File tree -- for nerds
+Plugin 'srooloose/nerdcommenter'	" Elegant commenting
+Plugin 'tpope/vim-commentary'		" Elegant commenting
+Plugin 'tpope/vim-dispatch'			" Async testing
+Plugin 'tpope/vim-fugitive'			" Git
+Plugin 'tpope/vim-sensible'			" Sensible vim defaults
+Plugin 'tpope/vim-surround'			" Elegant bracket handling
+Plugin 'vim-airline/vim-airline'	" Status bar
+Plugin 'vim-syntastic/syntastic'	" Syntax checking
+Plugin 'Valloric/YouCompleteMe'		" Snippets
+
+call vundle#end()
+filetype plugin indent on
+
+
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 " Enhance command-line completion
@@ -76,10 +103,10 @@ set title
 " Show the (partial) command as it’s being typed
 set showcmd
 " Use relative line numbers
-if exists("&relativenumber")
-	set relativenumber
-	au BufReadPost * set relativenumber
-endif
+" if exists("&relativenumber")
+" 	set relativenumber
+" 	au BufReadPost * set relativenumber
+" endif
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
