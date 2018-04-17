@@ -20,14 +20,15 @@ Plugin 'mhinz/vim-signify'									" Version control A, D, R
 Plugin 'plasticboy/vim-markdown'							" Markdown
 Plugin 'scrooloose/nerdtree'								" File tree -- for nerds
 Plugin 'scrooloose/nerdcommenter'							" Elegant commenting
-Plugin 'tpope/vim-commentary'								" Elegant commenting
+" Plugin 'tpope/vim-commentary'								" Elegant commenting
 Plugin 'tpope/vim-dispatch'									" Async testing
 Plugin 'tpope/vim-fugitive'									" Git
 Plugin 'tpope/vim-sensible'									" Sensible vim defaults
 Plugin 'tpope/vim-surround'									" Elegant bracket handling
 Plugin 'Xuyuanp/nerdtree-git-plugin'						" NERDTree git support
-Plugin 'Valloric/YouCompleteMe'								" Snippets
+" Plugin 'Valloric/YouCompleteMe'								" Snippets
 Plugin 'vim-airline/vim-airline'							" Status bar
+Plugin 'vim-scripts/a.vim'										" Alternate files
 Plugin 'vim-syntastic/syntastic'							" Syntax checking
 
 call vundle#end()
@@ -38,16 +39,25 @@ filetype plugin indent on
 
 " -- NERDTree configuration ---------------------------------------------------
 
-" Open a NERDTree automatically if no files are specified
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" " Open a NERDTree automatically if no files are specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-" Open a NERDTree automatically if a directory is specified
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+" " Open a NERDTree automatically if a directory is specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 " Close NERDTree if it is the only vim buffer open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Size NERDTree
+:let g:NERDTreeWinSize=36
+
+" Bind NERDTree toggle
+map <C-n> :NERDTreeToggle<CR>
+
+" Show hidden files
+let NERDTreeShowHidden=1
 
 
 " == General Configuration ====================================================
@@ -129,6 +139,9 @@ set showcmd
 " endif
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
+
+" set colors
+set t_Co=16
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
