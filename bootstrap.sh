@@ -2,8 +2,8 @@
 
 cd "$(dirname "${BASH_SOURCE}")";
 
-git pull origin master;
-git submodule update --init --recursive
+# git pull origin master;
+# git submodule update --init --recursive
 
 function sync_files() {
 	rsync \
