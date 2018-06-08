@@ -27,6 +27,9 @@ else
 	read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
 	echo "";
 	if [[ $REPLY =~ ^[Yy]$ ]]; then
+		# TODO(aelsen): modularize Vundle / vim
+		git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 		sync_files;
 	fi;
 fi;
