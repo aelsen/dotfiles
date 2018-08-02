@@ -26,6 +26,8 @@ function deploy() {
 		echo -e "Running \"$f\".";
 		source "$f";
 	done
+
+	sync_files
 }
 
 # Install Brew
@@ -74,11 +76,10 @@ function package_manager_update() {
 	$PKG_UPDATE $1;
 }
 
-deploy
-
 function sync_files() {
 	rsync \
 		--exclude ".git/" \
+		--exclude "install/" \
 		--exclude "shell/" \
 		--exclude "tmux/" \
 		--exclude ".DS_Store" \
@@ -86,26 +87,19 @@ function sync_files() {
 		--exclude "deploy.sh" \
 		--exclude "README*" \
 		--exclude "LICENSE*" \
-		-avhn --no-perms . ~;
+		-avh --no-R --no-perms . ~;
 	
-	rsync -n shell/.* ~
-	rsync -n shell/bash/.* ~
-	rsync -n shell/zsh/.* ~
-	rsync -n tmux/.*.conf* ~
+	rsync -cv --no-R shell/.* ~
+	rsync -cv --no-R shell/bash/.* ~
+	rsync -cv --no-R shell/zsh/.* ~
+	rsync -cv --no-R tmux/.*.conf* ~
 	
 	source ~/.bash_profile;
 }
 
-# if [ "$1" == "--force" -o "$1" == "-f" ]; then
-# 	sync_files;
-# else
-# 	read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
-# 	echo "";
-# 	if [[ $REPLY =~ ^[Yy]$ ]]; then
-# 		sync_files;
-# 	fi;
-# fi;
-# unset sync_files;
+deploy
+
+
 
 unset PKG_UPDATE
 unset PKG_INSTALL
