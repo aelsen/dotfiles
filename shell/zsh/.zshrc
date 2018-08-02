@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/antonia/.oh-my-zsh"
+export ZSH="~/.oh-my-zsh"
 
 # Theme
 ZSH_THEME="robbyrussell"
@@ -42,7 +42,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 
-for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
+for file in ~/.{path,exports,aliases,functions,extra}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
