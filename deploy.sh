@@ -19,6 +19,8 @@ function MACRO_DEBUG() {
 
 # Deploy dotfiles
 function deploy() {
+	git submodule update --init
+	
 	os_setup;
 	for f in install/*; do  # or wget-*.sh instead of *.sh
 		echo -e "Running \"$f\".";
@@ -77,12 +79,13 @@ deploy
 function sync_files() {
 	rsync \
 		--exclude ".git/" \
+		--exclude "shell/" \
 		--exclude "tmux/" \
 		--exclude ".DS_Store" \
 		--exclude ".osx" \
 		--exclude "bootstrap.sh" \
-		--exclude "README.md" \
-		--exclude "LICENSE-MIT.txt" \
+		--exclude "README*" \
+		--exclude "LICENSE*" \
 		-avhn --no-perms . ~;
 	
 	rsync -n shell/.* ~
