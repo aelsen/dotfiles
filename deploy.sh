@@ -20,7 +20,7 @@ function MACRO_DEBUG() {
 # Deploy dotfiles
 function deploy() {
 	git submodule update --init
-	
+
 	os_setup;
 	for f in install/*; do  # or wget-*.sh instead of *.sh
 		echo -e "Running \"$f\".";
@@ -83,7 +83,7 @@ function sync_files() {
 		--exclude "tmux/" \
 		--exclude ".DS_Store" \
 		--exclude ".osx" \
-		--exclude "bootstrap.sh" \
+		--exclude "deploy.sh" \
 		--exclude "README*" \
 		--exclude "LICENSE*" \
 		-avhn --no-perms . ~;
