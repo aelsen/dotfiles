@@ -15,12 +15,13 @@ Thumbs.db
 
 # QtCreator
 *qmake.stash
+*.pro.user
 
 # Files that might appear on external disks
 .Spotlight-V100
 .Trashes
 
-# Compiled
+# Compiled C / C++
 *.o
 *.so
 *.a
