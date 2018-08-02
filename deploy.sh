@@ -74,21 +74,24 @@ function package_manager_update() {
 
 deploy
 
-# function sync_files() {
-# 	rsync \
-# 		--exclude ".git/" \
-# 		--exclude "tmux/" \
-# 		--exclude ".DS_Store" \
-# 		--exclude ".osx" \
-# 		--exclude "bootstrap.sh" \
-# 		--exclude "README.md" \
-# 		--exclude "LICENSE-MIT.txt" \
-# 		-avh --no-perms . ~;
+function sync_files() {
+	rsync \
+		--exclude ".git/" \
+		--exclude "tmux/" \
+		--exclude ".DS_Store" \
+		--exclude ".osx" \
+		--exclude "bootstrap.sh" \
+		--exclude "README.md" \
+		--exclude "LICENSE-MIT.txt" \
+		-avhn --no-perms . ~;
 	
-# 	rsync tmux/.*.conf* ~
+	rsync -n shell/.* ~
+	rsync -n shell/bash/.* ~
+	rsync -n shell/zsh/.* ~
+	rsync -n tmux/.*.conf* ~
 	
-# 	source ~/.bash_profile;
-# }
+	source ~/.bash_profile;
+}
 
 # if [ "$1" == "--force" -o "$1" == "-f" ]; then
 # 	sync_files;
