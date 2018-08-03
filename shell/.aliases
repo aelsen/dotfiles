@@ -11,10 +11,13 @@ alias -- -="cd -"
 # Shortcuts
 alias cddl="cd ~/Downloads"
 alias cddt="cd ~/Desktop"
-alias cdp="cd ~/Projects"
-alias cdm="cd ~/Projects/Modbot"
-alias cdr="cd ~/Projects/ronin"
+alias cdb="cd ~/Projects/Modbot/brain"
 alias cdc="cd ~/Projects/Modbot/inspector-gadget"
+alias cdd="cd ~/Projects/dotfiles"
+alias cdm="cd ~/Projects/Modbot"
+alias cdma="cd ~/Projects/Modbot/modbot-api"
+alias cdp="cd ~/Projects"
+alias cdr="cd ~/Projects/ronin"
 alias g="git"
 
 # Detect which `ls` flavor is in use
