@@ -94,7 +94,7 @@ function sync_files() {
 	rsync -cv --no-R shell/zsh/.* ~
 	rsync -cv --no-R tmux/.*.conf* ~
 	
-	source ~/.bash_profile;
+	source ~/.zshrc;
 }
 
 deploy
