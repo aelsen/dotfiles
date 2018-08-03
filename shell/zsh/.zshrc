@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="~/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Theme
 ZSH_THEME="robbyrussell"
@@ -35,14 +35,40 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  zsh-256color
 )
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-
 for file in ~/.{path,exports,aliases,functions,extra}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
+
+
+# ZSH Prompt
+## Highlight the user name when logged in as root.
+if [[ "${USER}" == "root" ]]; then
+	user_style="%{$fg[red]%}";
+else
+	user_style="%F{166}";
+fi;
+
+## Highlight the hostname when connected via SSH.
+if [[ "${SSH_TTY}" ]]; then
+	host_style="%{$fg[red]%}";
+else
+	host_style="%{$fg[yellow]%}";
+fi;
+
+# Apply prompt colors and formatting
+local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+PROMPT="$user_style$USER%f"                                             # username
+PROMPT+="%F{white}@%f"                                                  # @
+PROMPT+="$host_style%m:"                                                # hostname
+PROMPT+="%F{green}%c "                                                  # current directory
+PROMPT+="$(git_prompt_info)"                                            # git information
+PROMPT+="${ret_status} "                                                # return status arrow
+PROMPT+="%{$reset_color%}"                                              # reset color
+

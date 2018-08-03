@@ -19,6 +19,15 @@ fi;
 if [ ! -d ~/.oh-my-zsh ]; then
 	echo -e "Installing Oh-My-ZSH.";
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+	source ~/.zshrc
+else
+	MACRO_DEBUG "Oh-My-ZSH already installed.";
+fi;
+
+# Install Oh-My-ZSH
+if [ ! -d $ZSH_CUSTOM/plugins/zsh-256color ]; then
+	echo -e "Installing Oh-My-ZSH plugin zsh-256color.";
+	git clone https://github.com/chrissicool/zsh-256color $ZSH_CUSTOM/plugins/zsh-256color
 else
 	MACRO_DEBUG "Oh-My-ZSH already installed.";
 fi;
