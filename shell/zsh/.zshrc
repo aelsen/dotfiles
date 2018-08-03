@@ -68,7 +68,7 @@ PROMPT="$user_style$USER%f"                                             # userna
 PROMPT+="%F{white}@%f"                                                  # @
 PROMPT+="$host_style%m:"                                                # hostname
 PROMPT+="%F{green}%c "                                                  # current directory
-PROMPT+="$(git_prompt_info)"                                            # git information
+# PROMPT+="$(git_prompt_info) "                                           # git information
 PROMPT+="${ret_status} "                                                # return status arrow
 PROMPT+="%{$reset_color%}"                                              # reset color
 
