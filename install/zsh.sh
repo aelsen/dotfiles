@@ -24,18 +24,11 @@ else
 	MACRO_DEBUG "Oh-My-ZSH already installed.";
 fi;
 
+ZSH_CUSTOM="~/.oh-my-zsh/custom"
 # Install Oh-My-ZSH zsh-256color plugin
 if [ ! -d $ZSH_CUSTOM/plugins/zsh-256color ]; then
 	echo -e "Installing Oh-My-ZSH plugin zsh-256color.";
 	git clone https://github.com/chrissicool/zsh-256color $ZSH_CUSTOM/plugins/zsh-256color
 else
-	MACRO_DEBUG "Oh-My-ZSH already installed.";
-fi;
-
-# Install Oh-My-ZSH
-if [ ! -d $ZSH_CUSTOM/plugins/zsh-256color ]; then
-	echo -e "Installing Oh-My-ZSH plugin zsh-256color.";
-	git clone https://github.com/chrissicool/zsh-256color $ZSH_CUSTOM/plugins/zsh-256color
-else
-	MACRO_DEBUG "Oh-My-ZSH already installed.";
+	MACRO_DEBUG "Oh-My-ZSH plugin zsh-256color already installed.";
 fi;

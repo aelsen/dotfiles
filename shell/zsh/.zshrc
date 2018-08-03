@@ -50,24 +50,26 @@ unset file;
 # ZSH Prompt
 ## Highlight the user name when logged in as root.
 if [[ "${USER}" == "root" ]]; then
-	user_style="%{$fg[red]%}";
+	user_style="%F{red}";
 else
 	user_style="%F{166}";
 fi;
 
 ## Highlight the hostname when connected via SSH.
 if [[ "${SSH_TTY}" ]]; then
-	host_style="%{$fg[red]%}";
+	host_style="%F{red}";
+  dir_style="%F{095}";
 else
-	host_style="%{$fg[yellow]%}";
+	host_style="%F{yellow}";
+  dir_style="%F{green}";
 fi;
 
 # Apply prompt colors and formatting
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 PROMPT="$user_style$USER%f"                                             # username
 PROMPT+="%F{white}@%f"                                                  # @
-PROMPT+="$host_style%m:"                                                # hostname
-PROMPT+="%F{green}%c "                                                  # current directory
+PROMPT+="$host_style%m%f:"                                                # hostname
+PROMPT+="$dir_style%c%f "                                                  # current directory
 # PROMPT+="$(git_prompt_info) "                                           # git information
 PROMPT+="${ret_status} "                                                # return status arrow
 PROMPT+="%{$reset_color%}"                                              # reset color
