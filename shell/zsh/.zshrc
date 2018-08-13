@@ -46,6 +46,9 @@ for file in ~/.{path,exports,aliases,functions,extra}; do
 done;
 unset file;
 
+# Unset TMUX share
+setopt noincappendhistory
+setopt nosharehistory
 
 # ZSH Prompt
 ## Highlight the user name when logged in as root.
