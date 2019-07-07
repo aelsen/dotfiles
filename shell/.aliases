@@ -19,6 +19,9 @@ alias cdma="cd ~/Projects/Modbot/modbot-api"
 alias cdp="cd ~/Projects"
 alias cdr="cd ~/Projects/ronin"
 alias g="git"
+alias tmux='tmux -2'
+alias vs='cdr && vagrant ssh'
+alias vx="cdr && vagrant up && vs"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
