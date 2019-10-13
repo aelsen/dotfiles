@@ -22,7 +22,7 @@ function deploy() {
 	git submodule update --init
 
 	os_setup;
-	for f in install/*; do  # or wget-*.sh instead of *.sh
+	for f in install/*; do
 		echo -e "Running \"$f\".";
 		source "$f";
 	done
@@ -59,7 +59,8 @@ function os_setup () {
 			;;
 	esac
 
-	MACRO_DEBUG "Package manager: \"$PKG_INSTALL\".";
+	MACRO_DEBUG "Detected OS \"$OS\"";
+	MACRO_DEBUG "- Package manager: \"$PKG_INSTALL\"";
 }
 
 # Install via OS package manager
