@@ -11,11 +11,16 @@ alias -- -="cd -"
 # Shortcuts
 alias cddl="cd ~/Downloads"
 alias cddt="cd ~/Desktop"
-alias cdp="cd ~/Projects"
-alias cdm="cd ~/Projects/Modbot"
-alias cdr="cd ~/Projects/ronin"
-alias cdc="cd ~/Projects/Modbot/inspector-gadget"
+alias cdb="cd ~/projects/modbot/brain"
+alias cdc="cd ~/projects/modbot/composer"
+alias cdd="cd ~/projects/dotfiles"
+alias cdm="cd ~/projects/modbot"
+alias cdp="cd ~/projects"
+alias cdr="cd ~/projects/ronin"
 alias g="git"
+alias tmux='tmux -2'
+alias vs='cdr && vagrant ssh'
+alias vx="cdr && vagrant up && vs"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
