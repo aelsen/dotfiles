@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 PACKAGES=(
+  "grc"
   "tmux"
   "vim"
   "zsh"
