@@ -187,3 +187,11 @@ function o() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+function modlog() {
+	if [ ! -x "$(command -v remark)" ]; then
+		tail -n 50 -f ${1}
+	else
+		tail -n 50 -f ${1} | remark ~/config/remark/modbot-log
+	fi;
+}
