@@ -192,6 +192,6 @@ function modlog() {
 	if [ ! -x "$(command -v remark)" ]; then
 		tail -n 50 -f ${1}
 	else
-		tail -n 50 -f ${1} | remark ~/config/remark/modbot-log
+		tail -n 50 -f ${1} | grcat ~/projects/dotfiles/.grc/conf.modbot
 	fi;
 }
