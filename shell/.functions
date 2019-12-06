@@ -189,9 +189,9 @@ function tre() {
 }
 
 function modlog() {
-	if [ ! -x "$(command -v remark)" ]; then
+	if [ ! -x "$(command -v grc)" ]; then
 		tail -n 50 -f ${1}
 	else
-		tail -n 50 -f ${1} | grcat ~/projects/dotfiles/.grc/conf.modbot
+		tail -n 50 -f ${1} | grcat ~/.grc/conf.modbot
 	fi;
 }
